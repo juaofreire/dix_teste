@@ -10,7 +10,7 @@
                             <h4 class="card-title">Users</h4>
                         </div>
                         <div class="col-4 text-right">
-                            <a href="#" class="btn btn-sm btn-primary">Add user</a>
+                            <a href="add" class="btn btn-sm btn-primary">Add user</a>
                         </div>
                     </div>
                 </div>
@@ -53,13 +53,6 @@
                         </table>
                     </div>
 
-                </div>
-
-                <div class="card-footer py-4">
-
-                    <nav class="d-flex justify-content-end" aria-label="...">
-
-                    </nav>
                 </div>
             </div>
         </div>

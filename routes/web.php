@@ -41,3 +41,9 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
 });
 
+//New Routes
+
+Route::group(['middleware' => 'auth'], function () {
+	Route::get('add', [App\Http\Controllers\UserController::class, 'add'])->name('add'); //Rota para página 'adicionar novo usuário'
+	Route::post('store', [App\Http\Controllers\UserController::class, 'store'])->name('store'); //Rota para criação um novo usuário no banco
+});
