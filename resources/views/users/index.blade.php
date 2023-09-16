@@ -9,9 +9,13 @@
                         <div class="col-8">
                             <h4 class="card-title">Users</h4>
                         </div>
-                        <div class="col-4 text-right">
-                            <a href="add" class="btn btn-sm btn-primary">Add user</a>
-                        </div>
+                        @auth
+                            @if (auth()->user()->permission === 1)
+                                <div class="col-4 text-right">
+                                    <a href="add" class="btn btn-sm btn-primary">Add user</a>
+                                </div>
+                            @endif
+                        @endauth
                     </div>
                 </div>
                 <div class="card-body">
@@ -36,15 +40,19 @@
                                     </td>
                                     <td>{{ $user->created_at->format('d/m/Y H:i') }}</td>
                                     <td class="text-right">
-                                        <div class="dropdown">
-                                            <a class="btn btn-sm btn-icon-only text-light" href="#" role="button"
-                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i class="fas fa-ellipsis-v"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                <a class="dropdown-item" href="#">Edit</a>
-                                            </div>
-                                        </div>
+                                        @auth
+                                            @if (auth()->user()->permission === 1)
+                                                <div class="dropdown">
+                                                    <a class="btn btn-sm btn-icon-only text-light" href="#" role="button"
+                                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <i class="fas fa-ellipsis-v"></i>
+                                                    </a>
+                                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                                        <a class="dropdown-item" href="#">Edit</a>
+                                                    </div>
+                                                </div>
+                                            @endif
+                                        @endauth
                                     </td>
                                 </tr>
                                 @endforeach
