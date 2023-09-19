@@ -17,9 +17,10 @@ class UserController extends Controller
      */
     public function index(User $model)
     {
-        return view('users.index', ['users' => $model->paginate(15)]);
+        return view('users.index', ['users' => $model->get()]);
     }
 
+    
     //New Functions
 
 
@@ -89,7 +90,7 @@ class UserController extends Controller
     }
 
     //Deleta o usuário do banco
-    public function delete(Request $request, $id)
+    public function delete($id)
     {
         User::findOrFail($id);
 

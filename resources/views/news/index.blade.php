@@ -6,6 +6,23 @@
             {{ session('success') }}
         </div>
     @endif
+
+    <div class="card ">
+        <div class="card-header">
+            <form action="{{ route('news') }}" method="GET">
+                <div class="input-group">
+                    <div class="col-8">
+                        <input type="string" name='search' class="form-control" id="search"
+                            placeholder="Search for title or description">
+                    </div>
+                    <div class="col-4 text-right">
+                        <button class="btn btn-sm" type="submit">Search</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-md-12">
             <div class="card ">
@@ -14,6 +31,7 @@
                         <div class="col-8">
                             <h4 class="card-title">News</h4>
                         </div>
+
                         <div class="col-4 text-right">
                             <a href="news/add" class="btn btn-sm btn-primary">Add news</a>
                         </div>

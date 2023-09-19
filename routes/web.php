@@ -56,6 +56,9 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('news', [App\Http\Controllers\NewsController::class, 'index'])->name('news'); //Rota para página 'notícias'
 	Route::get('news/add', [App\Http\Controllers\NewsController::class, 'add'])->name('news_add'); //Rota para página 'adicionar nova notícia'
 	Route::post('news/store', [App\Http\Controllers\NewsController::class, 'store'])->name('news_store'); //Rota para criação uma nova notícia no banco
+});
+
+Route::group(['middleware' => 'checkAuth'], function () {
 	Route::get('news/edit/{id}', [App\Http\Controllers\NewsController::class, 'edit'])->name('news_edit'); //Rota para página 'editar notícia'
 	Route::post('news/update{id}', [App\Http\Controllers\NewsController::class, 'update'])->name('news_update'); //Rota para editar notícia no banco
 	Route::post('news/delete{id}', [App\Http\Controllers\NewsController::class, 'delete'])->name('news_delete'); //Rota deletar uma notícia no banco
