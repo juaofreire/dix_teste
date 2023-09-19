@@ -1,6 +1,11 @@
 @extends('layouts.app', ['page' => __('User Management'), 'pageSlug' => 'users'])
 
 @section('content')
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
     <div class="row">
         <div class="col-md-12">
             <div class="card ">
@@ -12,7 +17,7 @@
                         @auth
                             @if (auth()->user()->permission === 1)
                                 <div class="col-4 text-right">
-                                    <a href="add" class="btn btn-sm btn-primary">Add user</a>
+                                    <a href="user/add" class="btn btn-sm btn-primary">Add user</a>
                                 </div>
                             @endif
                         @endauth
@@ -48,7 +53,8 @@
                                                         <i class="fas fa-ellipsis-v"></i>
                                                     </a>
                                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                        <a class="dropdown-item" href="#">Edit</a>
+                                                        <a class="dropdown-item"
+                                                            href="{{ route('edit', ['id' => $user->id]) }}">Edit</a>
                                                     </div>
                                                 </div>
                                             @endif
@@ -60,7 +66,6 @@
                             </tbody>
                         </table>
                     </div>
-
                 </div>
             </div>
         </div>

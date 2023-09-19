@@ -43,7 +43,11 @@ Route::group(['middleware' => 'auth'], function () {
 
 //New Routes
 
-Route::group(['middleware' => 'auth'], function () {
-	Route::get('add', [App\Http\Controllers\UserController::class, 'add'])->name('add'); //Rota para página 'adicionar novo usuário'
-	Route::post('store', [App\Http\Controllers\UserController::class, 'store'])->name('store'); //Rota para criação um novo usuário no banco
+Route::group(['middleware' => 'checkPermission'], function () {
+	Route::get('user/add', [App\Http\Controllers\UserController::class, 'add'])->name('add'); //Rota para página 'adicionar novo usuário'
+	Route::post('user/store', [App\Http\Controllers\UserController::class, 'store'])->name('store'); //Rota para criação um novo usuário no banco
+	Route::get('user/edit/{id}', [App\Http\Controllers\UserController::class, 'edit'])->name('edit'); //Rota para página 'editar usuário'
+	Route::post('user/update{id}', [App\Http\Controllers\UserController::class, 'update'])->name('update'); //Rota para editar nome e email de um usuário no banco
+	Route::post('user/password{id}', [App\Http\Controllers\UserController::class, 'password'])->name('password'); //Rota para editar senha de um usuario no banco
+	Route::post('user/delete{id}', [App\Http\Controllers\UserController::class, 'delete'])->name('delete'); //Rota deletar um usuário no banco
 });

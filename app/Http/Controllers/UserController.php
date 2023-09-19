@@ -32,14 +32,70 @@ class UserController extends Controller
     //Cria um novo usuário no banco
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|min:8|confirmed',
+        ]);
+
         User::create([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'password' => Hash::make($request->input('password')), 
         ]);
         
-        return redirect('/user');
+        return redirect('/user')->with('success', 'User created successfully');;
     }
     
+    //Retorna página 'editar usuário'
+    public function edit($id)
+    {
+        $user = User::findOrFail($id);
+        return view('users.edit', compact('user'));
+    }
+
+    //Atualiza os dados do usuário no banco
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email,' . $id,
+        ]);
+
+        $user = User::findOrFail($id);
+
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+
+        $user->save();
+
+        return redirect('/user')->with('success', 'User updated successfully');
+    }
+
+    //Atualiza a senha do usuário no banco
+    public function password(Request $request, $id)
+    {
+        $request->validate([
+            'password' => 'required|min:8|confirmed',
+        ]);
+
+        $user = User::findOrFail($id);
+
+        $user->password = $request->input('password');
+
+        $user->save();
+
+        return redirect('/user')->with('success', 'Password changed successfully');
+    }
+
+    //Deleta o usuário do banco
+    public function delete(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+
+        User::destroy($id);
+
+        return redirect('/user')->with('success', 'User deleted successfully');
+    }
 
 }
