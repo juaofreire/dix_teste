@@ -35,6 +35,12 @@
                     </ul>
                 </div>
             </li>
+            <li @if ($pageSlug == 'news') class="active " @endif>
+                <a href="{{ route('news') }}">
+                    <i class="tim-icons icon-single-copy-04"></i>
+                    <p>{{ _('News') }}</p>
+                </a>
+            </li>
             <li @if ($pageSlug == 'icons') class="active " @endif>
                 <a href="{{ route('pages.icons') }}">
                     <i class="tim-icons icon-atom"></i>

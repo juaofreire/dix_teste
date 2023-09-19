@@ -36,33 +36,32 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    @foreach ($users as $user)
-                                <tr>
-                                    <td>{{ $user->name }}</td>
-                                    <td>
-                                        <a href="mailto:{{ $user->email }}">{{ $user->email }}</a>
-                                    </td>
-                                    <td>{{ $user->created_at->format('d/m/Y H:i') }}</td>
-                                    <td class="text-right">
-                                        @auth
-                                            @if (auth()->user()->permission === 1)
-                                                <div class="dropdown">
-                                                    <a class="btn btn-sm btn-icon-only text-light" href="#" role="button"
-                                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        <i class="fas fa-ellipsis-v"></i>
-                                                    </a>
-                                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                        <a class="dropdown-item"
-                                                            href="{{ route('edit', ['id' => $user->id]) }}">Edit</a>
+                                @foreach ($users as $user)
+                                    <tr>
+                                        <td>{{ $user->name }}</td>
+                                        <td>
+                                            <a href="mailto:{{ $user->email }}">{{ $user->email }}</a>
+                                        </td>
+                                        <td>{{ $user->created_at->format('d/m/Y H:i') }}</td>
+                                        <td class="text-right">
+                                            @auth
+                                                @if (auth()->user()->permission === 1)
+                                                    <div class="dropdown">
+                                                        <a class="btn btn-sm btn-icon-only text-light" href="#"
+                                                            role="button" data-toggle="dropdown" aria-haspopup="true"
+                                                            aria-expanded="false">
+                                                            <i class="fas fa-ellipsis-v"></i>
+                                                        </a>
+                                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                                            <a class="dropdown-item"
+                                                                href="{{ route('edit', ['id' => $user->id]) }}">Edit</a>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            @endif
-                                        @endauth
-                                    </td>
-                                </tr>
+                                                @endif
+                                            @endauth
+                                        </td>
+                                    </tr>
                                 @endforeach
-                                </tr>
                             </tbody>
                         </table>
                     </div>

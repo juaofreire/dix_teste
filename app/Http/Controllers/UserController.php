@@ -32,7 +32,7 @@ class UserController extends Controller
     //Cria um novo usuário no banco
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
+        $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:8|confirmed',
@@ -44,7 +44,7 @@ class UserController extends Controller
             'password' => Hash::make($request->input('password')), 
         ]);
         
-        return redirect('/user')->with('success', 'User created successfully');;
+        return redirect('/user')->with('success', 'User created successfully');
     }
     
     //Retorna página 'editar usuário'
@@ -91,7 +91,7 @@ class UserController extends Controller
     //Deleta o usuário do banco
     public function delete(Request $request, $id)
     {
-        $user = User::findOrFail($id);
+        User::findOrFail($id);
 
         User::destroy($id);
 

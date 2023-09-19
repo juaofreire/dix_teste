@@ -51,3 +51,12 @@ Route::group(['middleware' => 'checkPermission'], function () {
 	Route::post('user/password{id}', [App\Http\Controllers\UserController::class, 'password'])->name('password'); //Rota para editar senha de um usuario no banco
 	Route::post('user/delete{id}', [App\Http\Controllers\UserController::class, 'delete'])->name('delete'); //Rota deletar um usuário no banco
 });
+
+Route::group(['middleware' => 'auth'], function () {
+	Route::get('news', [App\Http\Controllers\NewsController::class, 'index'])->name('news'); //Rota para página 'notícias'
+	Route::get('news/add', [App\Http\Controllers\NewsController::class, 'add'])->name('news_add'); //Rota para página 'adicionar nova notícia'
+	Route::post('news/store', [App\Http\Controllers\NewsController::class, 'store'])->name('news_store'); //Rota para criação uma nova notícia no banco
+	Route::get('news/edit/{id}', [App\Http\Controllers\NewsController::class, 'edit'])->name('news_edit'); //Rota para página 'editar notícia'
+	Route::post('news/update{id}', [App\Http\Controllers\NewsController::class, 'update'])->name('news_update'); //Rota para editar notícia no banco
+	Route::post('news/delete{id}', [App\Http\Controllers\NewsController::class, 'delete'])->name('news_delete'); //Rota deletar uma notícia no banco
+});
