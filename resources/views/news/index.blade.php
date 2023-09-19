@@ -12,7 +12,7 @@
             <form action="{{ route('news') }}" method="GET">
                 <div class="input-group">
                     <div class="col-8">
-                        <input type="string" name='search' class="form-control" id="search"
+                        <input type="string" name='search' class="form-control border" id="search"
                             placeholder="Search for title or description">
                     </div>
                     <div class="col-4 text-right">
