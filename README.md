@@ -1,66 +1,95 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# DIX
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+<p>Realizei com sucesso a implementação do Projeto, que inclui a criação do Gerenciamento de Usuários, um CRUD de Notícias com recursos de pesquisa, e uma restrição que permite que os usuários acessem apenas suas próprias notícias, garantindo segurança e privacidade dos dados.</p>
 
-## About Laravel
+## Passo a Passo para Começar:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<strong>1. Clone o Repositório:</strong>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+```bash
+git clone https://github.com/juaofreire/dix_teste.git
+```
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+<strong>2. Acesse o Diretório do Projeto:</strong>
 
-## Learning Laravel
+```bash
+cd seu-projeto
+```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+<strong>3. Instale as Dependências:</strong>
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- Para o npm:
+```bash
+npm install
+```
+- Para o Composer:
+```bash
+composer install
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+<strong>4. Copie o Arquivo .env:</strong>
 
-## Laravel Sponsors
+```bash
+cp .env.example .env
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+<strong>5. Gere uma Nova Chave do Laravel:<br></strong>
 
-### Premium Partners
+```bash
+php artisan key:generate
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+<strong>6. Configure o Banco de Dados em .env (caso seja necessário):</strong>
 
-## Contributing
+```bash
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=White
+DB_USERNAME=root
+DB_PASSWORD=
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+<strong>7. Rode as Migrations para Criar o Banco de Dados (responda com 'yes' quando solicitado):</strong>
 
-## Code of Conduct
+```bash
+php artisan migrate
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+<strong>8. Alimente o Banco de Dados com o Usuário Padrão:</strong>
 
-## Security Vulnerabilities
+```bash
+php artisan db:seed
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+<strong>9. Inicie o Servidor de Desenvolvimento:</strong>
 
-## License
+```bash
+php artisan serve
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+<strong>10. URL para Acesso ao Servidor de Desenvolvimento:</strong>
+
+```bash
+http://127.0.0.1:8000/
+```
+
+## Modelagem de Dados:
+
+<strong>Para este projeto, muitas das tabelas já estavam prontas, sendo as únicas mudanças/novidades as seguintes:</strong>
+
+<strong>1. Criação da tabela "news" conforme solicitado no teste:</strong>
+
+- A tabela "news" possui os seguintes atributos: id, title, description, user_id, created_at e updated_at.
+- O atributo "user_id" é uma chave estrangeira referenciando o "id" da tabela "users", sendo usado para identificar o criador da notícia.
+- Cada notícia é associada a apenas um criador (usuário), enquanto um usuário pode criar várias notícias.
+
+<strong>2. Criação do atributo "permission" como medida de segurança para o gerenciamento de usuários:</strong>
+
+- Apenas o Administrador White (usuário padrão) possui a permissão de administrador (1), enquanto outros usuários criados terão permissão de usuário (0).
+- A permissão de administrador permite a criação, edição (de nome e email ou de senha) e deleção de usuários na aba de gerenciamento de usuários.
+- No momento atual, não há uma forma de dar permissão de administrador para outros usuários além da edição direta no banco.
+
+![image](https://github.com/juaofreire/dix_teste/images/tables.png)
+
+<strong></strong>

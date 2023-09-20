@@ -45,7 +45,7 @@
                                         <td>{{ $user->created_at->format('d/m/Y H:i') }}</td>
                                         <td class="text-right">
                                             @auth
-                                                @if (auth()->user()->permission === 1)
+                                                @if (auth()->user()->permission === 1 && auth()->user()->id !== $user->id)
                                                     <div class="dropdown">
                                                         <a class="btn btn-sm btn-icon-only text-light" href="#"
                                                             role="button" data-toggle="dropdown" aria-haspopup="true"

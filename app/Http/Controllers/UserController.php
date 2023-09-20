@@ -52,6 +52,11 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::findOrFail($id);
+
+        if ($id == auth()->user()->id) {
+            return redirect()->route('profile.edit');
+        }
+        
         return view('users.edit', compact('user'));
     }
 

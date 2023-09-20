@@ -83,15 +83,11 @@
         @csrf
         <button type="submit" id="confirm" class="btn btn-danger">Delete User</button>
     </form>
-    
 
 
-    
     <script>
-        
         function ConfirmDelete() {
             confirm("This action is definitive, are you sure?")
         };
-
     </script>
 @endsection
