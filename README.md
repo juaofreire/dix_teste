@@ -90,6 +90,6 @@ http://127.0.0.1:8000/
 - A permissão de administrador permite a criação, edição (de nome e email ou de senha) e deleção de usuários na aba de gerenciamento de usuários.
 - No momento atual, não há uma forma de dar permissão de administrador para outros usuários além da edição direta no banco.
 
-![image](https://github.com/juaofreire/dix_teste/main/images/tables.png)
+![image](https://github.com/juaofreire/dix_teste/blob/main/images/tables.png?raw=true)
 
 <strong></strong>
