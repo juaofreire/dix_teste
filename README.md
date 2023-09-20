@@ -13,7 +13,7 @@ git clone https://github.com/juaofreire/dix_teste.git
 <strong>2. Acesse o Diretório do Projeto:</strong>
 
 ```bash
-cd seu-projeto
+cd dix_teste
 ```
 
 <strong>3. Instale as Dependências:</strong>
@@ -90,12 +90,12 @@ http://127.0.0.1:8000/
 - A permissão de administrador permite a criação, edição (de nome e email ou de senha) e deleção de usuários na aba de gerenciamento de usuários.
 - No momento atual, não há uma forma de dar permissão de administrador para outros usuários além da edição direta no banco.
 
-![image0](https://github.com/juaofreire/dix_teste/raw/main/images/tables.png?raw=true)
+![image0](https://github.com/juaofreire/dix_teste/blob/main/images/tables.png?raw=true)
 
 
 ## Novas Telas do Sistema:
 
 | Gerenciamento de Usuários | Criação de Novo Usuário | Edição de Usuário |
-| ![image1](https://github.com/juaofreire/dix_teste/raw/main/images/user_index.png?raw=true) | ![image2](https://github.com/juaofreire/dix_teste/raw/main/images/user_add.png?raw=true) | ![image3](https://github.com/juaofreire/dix_teste/raw/main/images/user_edit.png?raw=true) |
+| ![image1](https://github.com/juaofreire/dix_teste/blob/main/images/user_index.png?raw=true) | ![image2](https://github.com/juaofreire/dix_teste/blob/main/images/user_add.png?raw=true) | ![image3](https://github.com/juaofreire/dix_teste/blob/main/images/user_edit.png?raw=true) |
 | Gerenciamento de Notícias | Criação de Nova Notícia | Edição de Notícia |
-| ![image4](https://github.com/juaofreire/dix_teste/raw/main/images/news_index.png?raw=true) | ![image5](https://github.com/juaofreire/dix_teste/raw/main/images/news_add.png?raw=true) | ![image6](https://github.com/juaofreire/dix_teste/raw/main/images/news_edit.png?raw=true) |
+| ![image4](https://github.com/juaofreire/dix_teste/blob/main/images/news_index.png?raw=true) | ![image5](https://github.com/juaofreire/dix_teste/blob/main/images/news_add.png?raw=true) | ![image6](https://github.com/juaofreire/dix_teste/blob/main/images/news_edit.png?raw=true) |
