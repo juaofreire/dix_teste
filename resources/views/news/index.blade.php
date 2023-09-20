@@ -52,9 +52,9 @@
                             <tbody>
                                 @foreach ($news as $news)
                                     <tr>
-                                        <td>{{ $news->title }}</td>
-                                        <td class="text-truncate" style="max-width: 200px;">{{ $news->description }}</td>
-                                        <td>{{ $news->created_at->format('d/m/Y H:i') }}</td>
+                                        <td class="text-truncate" style="max-width: 150px;">{{ $news->title }}</td>
+                                        <td class="text-truncate" style="max-width: 350px;">{{ $news->description }}</td>
+                                        <td style="max-width: 50px;">{{ $news->created_at->format('d/m/Y H:i') }}</td>
                                         <td class="text-right">
                                             <div class="dropdown">
                                                 <a class="btn btn-sm btn-icon-only text-light" href="#" role="button"

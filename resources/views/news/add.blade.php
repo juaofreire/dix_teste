@@ -17,14 +17,14 @@
                         <div class="form-group">
                             <label for="title">Title</label>
                             <input type="string" name='title' class="form-control" id="title"
-                                placeholder="Enter the news title here">
+                                placeholder="Enter the news title here" value="{{ old('title') }}">
                         </div>
                         @error('title')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                         <div class="form-group">
                             <label for="description">Description</label>
-                            <textarea class="form-control" name='description' id="description" rows="3"></textarea>
+                            <textarea class="form-control" name='description' id="description" rows="3">{{ old('description') }}</textarea>
                         </div>
                         @error('description')
                             <div class="alert alert-danger">{{ $message }}</div>
