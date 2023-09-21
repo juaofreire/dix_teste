@@ -100,3 +100,5 @@ http://127.0.0.1:8000/
 | ![image1](https://github.com/juaofreire/dix_teste/blob/main/images/user_index.png?raw=true) | ![image2](https://github.com/juaofreire/dix_teste/blob/main/images/user_add.png?raw=true) | ![image3](https://github.com/juaofreire/dix_teste/blob/main/images/user_edit.png?raw=true) |
 | Gerenciamento de Notícias | Criação de Nova Notícia | Edição de Notícia |
 | ![image4](https://github.com/juaofreire/dix_teste/blob/main/images/news_index.png?raw=true) | ![image5](https://github.com/juaofreire/dix_teste/blob/main/images/news_add.png?raw=true) | ![image6](https://github.com/juaofreire/dix_teste/blob/main/images/news_edit.png?raw=true) |
+
+
