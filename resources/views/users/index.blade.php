@@ -38,8 +38,8 @@
                             <tbody>
                                 @foreach ($users as $user)
                                     <tr>
-                                        <td>{{ $user->name }}</td>
-                                        <td>
+                                        <td class="text-truncate" style="max-width: 150px;">{{ $user->name }}</td>
+                                        <td class="text-truncate" style="max-width: 350px;">
                                             <a href="mailto:{{ $user->email }}">{{ $user->email }}</a>
                                         </td>
                                         <td>{{ $user->created_at->format('d/m/Y H:i') }}</td>
